@@ -223,12 +223,34 @@ class PageBase(QWidget):
         self.progress.setVisible(loading)
         self.loading_badge.set_severity("info" if loading else "good", "Loading" if loading else "Ready")
 
-    def clear_content(self):
-        while self.content_layout.count():
-            item = self.content_layout.takeAt(0)
+    @classmethod
+    def _clear_layout(cls, layout):
+        """Remove every widget, nested layout, and spacer from a layout."""
+        while layout.count():
+            item = layout.takeAt(0)
             widget = item.widget()
-            if widget:
+            child_layout = item.layout()
+            if widget is not None:
+                # Reparenting hides the old widget immediately.  deleteLater()
+                # alone is not enough here because widgets stored in nested
+                # layouts otherwise remain children of the scroll-area content
+                # widget and keep painting underneath the next refresh.
+                widget.hide()
+                widget.setParent(None)
                 widget.deleteLater()
+            elif child_layout is not None:
+                cls._clear_layout(child_layout)
+                child_layout.deleteLater()
+
+    def clear_content(self):
+        self.content.setUpdatesEnabled(False)
+        try:
+            self._clear_layout(self.content_layout)
+            self.content_layout.invalidate()
+        finally:
+            self.content.setUpdatesEnabled(True)
+            self.content.updateGeometry()
+            self.content.update()
 
     def render_empty(self, message="Run a refresh to load local read-only checks."):
         self.clear_content()

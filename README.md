@@ -126,3 +126,13 @@ See `CONTRIBUTING.md`.
 ## Security
 
 See `SECURITY.md`.
+
+
+
+Some Screenshots of parrot safety center
+<img width="1920" height="1080" alt="Screenshot_20260718_133118" src="https://github.com/user-attachments/assets/d7eccd37-c7b1-495a-87b4-c6d7ce7db3b0" />
+<img width="1920" height="1080" alt="Screenshot_20260718_133111" src="https://github.com/user-attachments/assets/34881f21-e7eb-449c-8d87-53f94437d1a9" />
+<img width="1920" height="1080" alt="Screenshot_20260718_133044" src="https://github.com/user-attachments/assets/6c8384f0-e96a-4606-849e-36ffc8423a35" />
+<img width="1920" height="1080" alt="Screenshot_20260718_133031" src="https://github.com/user-attachments/assets/1c740bfd-5dbe-410a-968c-12254045aa07" />
+<img width="1920" height="1080" alt="Screenshot_20260718_133023" src="https://github.com/user-attachments/assets/93108254-6be9-41fc-b758-9a3ca24bc780" />
+<img width="1912" height="1080" alt="Screenshot_20260718_133004" src="https://github.com/user-attachments/assets/34156857-e369-4a09-ace5-a75951554b7f" />
